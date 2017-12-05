@@ -4,6 +4,11 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import firebase from 'firebase/app'
+import 'firebase/auth';
+import 'firebase/database';
+
+
+
 var config = {
     apiKey: "AIzaSyBJN06qGCWV9dp3HemaMsRHWCCJPavcPbw",
     authDomain: "unibookstore-f0cd0.firebaseapp.com",
