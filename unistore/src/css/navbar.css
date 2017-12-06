@@ -1,0 +1,47 @@
+#navbar {
+  text-align: center;
+  height: 80px;
+  opacity: 0.95;
+}
+
+nav .nav-link:hover {
+  transition: 0.2s;
+  line-height: 1;
+  border-top: 4px solid rgba(255, 255, 255, 0.77);
+  border-bottom: 4px solid rgba(255, 255, 255, 0.77);
+}
+
+nav .nav-link {
+  float: left;
+  display: block;
+  color: #FFFFFF;
+  padding: 14px 16px;
+  font-size: 20px;
+}
+
+.navbar-brand {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  padding: 14px 16px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+}
+
+#unilogo {
+  height: 100%;
+}
+
+h1 span{
+  color:  #5383d3;
+  font: normal 36px 'Cookie', cursive;
+}
+
+a h1 {
+  font: normal 36px 'Cookie', cursive;
+}
+
+a h4 {
+  line-height: 60%;
+}

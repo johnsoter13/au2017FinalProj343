@@ -1,9 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+
+import './css/index.css';
+import './css/navbar.css';
+import './css/footer.css';
+import './css/sell.css';
+import './css/explore.css';
+
+import 'bootstrap/dist/css/bootstrap.css';
+import 'font-awesome/css/font-awesome.min.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import firebase from 'firebase/app'
+
+
 var config = {
     apiKey: "AIzaSyBJN06qGCWV9dp3HemaMsRHWCCJPavcPbw",
     authDomain: "unibookstore-f0cd0.firebaseapp.com",

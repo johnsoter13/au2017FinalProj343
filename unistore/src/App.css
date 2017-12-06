@@ -1,28 +1,75 @@
-.App {
-  text-align: center;
+/* body {
+  background: url(./img/book.jpg);
+  background-size: 100%;
+  background-position: absolute;
+  background-repeat: no-repeat;
+} */
+
+body {
+  background:linear-gradient(0deg,rgba(39, 153, 191, 0.1),rgba(39, 153, 191,0.3)),url(./img/book.jpg);
+  background-size:cover;
+  background-position: center;
+  }
+
+
+#background {
+  width: 100%;
+  margin-bottom: 100px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+#buyImg, #sellImg {
+  width: 20%;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+/* #buyImg {
+  margin-right: 20px;
+}
+
+#sellImg {
+  margin-left: 20px;
+} */
+
+hr {
+  width: 60px;
+}
+
+/* #sell {
+  background-image: url('./img/book.jpg');
+  background-size: cover;
+} */
+
+#pagetext {
+  margin-top: 7rem;
+  background-color: rgba(0, 0, 0, 0.39);
   color: white;
 }
 
-.App-title {
-  font-size: 1.5em;
+#learn {
+    position: relative;
+    display: block;
+    padding: 19px 39px 18px 39px;
+    color: #FFF;
+    margin: 0 auto;
+    background: rgba(4, 118, 170, 0);
+    font-size: 18px;
+    text-align: center;
+    font-style: normal;
+    width: 20%;
+    border: 2px solid #838383;
+    border-width: 3px 3px 3px 3px;
+    margin-bottom: 10px;
 }
 
-.App-intro {
-  font-size: large;
+#learn:hover
+{
+    transition: 0.3s;
+    background: rgba(185, 210, 221, 0.44);
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+#sell h1 {
+    text-align: center;
+}
+
+#buysellimg {
+  background-color: white;
 }
