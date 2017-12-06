@@ -33,9 +33,13 @@ nav .nav-link {
   height: 100%;
 }
 
-h1 span{
+h1 span {
   color:  #5383d3;
   font: normal 36px 'Cookie', cursive;
+}
+
+#logo:hover {
+  color: white;
 }
 
 a h1 {
