@@ -12,6 +12,10 @@ import sellImg from './img/sell.png';
 import firebase from 'firebase/app';
 import SignUpForm from './SignUp';
 import SignInForm from './SignIn';
+import CircularProgress from 'material-ui/CircularProgress';
+import FlatButton from 'material-ui/FlatButton';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { StyleSheet, css } from 'aphrodite';
 import 'firebase/auth';
 import 'firebase/database';
 
@@ -137,6 +141,11 @@ class App extends Component {
     else {
       content = (
         <div>
+          <div className={css(styles.logOutBar)}>
+            {this.state.user &&
+              <FlatButton className={css(styles.logOutButton)} primary={true} label="Log Out" onClick={() => this.handleSignOut()}/>
+            }
+          </div>
           <BrowserRouter basename={process.env.PUBLIC_URL + '/'}>
             <div className="App">
               <Switch>
@@ -148,22 +157,16 @@ class App extends Component {
               </Switch>
             </div>
           </BrowserRouter>
-          <div className="container">
-            {this.state.user &&
-              <button className="logoutBtn btn btn-warning"
-                onClick={() => this.handleSignOut()}>
-                Log Out
-          </button>
-            }
-          </div>
         </div>
       )
     }
 
     return (
-      <div>
-          {content}
-      </div>
+      <MuiThemeProvider>
+        <div>
+          {this.state.loading ? (<div><CircularProgress size={150} thickness={7} /></div>) : (content)}
+        </div>
+      </MuiThemeProvider>
     );
   }
 }
@@ -196,6 +199,17 @@ class Home extends Component {
   }
 }
 
+const styles = StyleSheet.create({
+  logOutBar:{
+    height: "37px",
+    width: "100%",
+    backgroundColor: "#343a40"
+  },
 
+  logOutButton:{
+    position: "relative",
+    float: "right"
+  }
+});
 
 export default App;

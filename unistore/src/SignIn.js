@@ -68,7 +68,6 @@ class SignInForm extends Component {
             </MuiThemeProvider>
         )
     }
-
 }
 
 export default SignInForm
