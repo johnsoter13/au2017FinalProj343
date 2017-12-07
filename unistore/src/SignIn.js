@@ -1,5 +1,9 @@
 import React, { Component } from 'react'; //import React Component
 import { Form, FormGroup, Label, Input, Button, Alert, FormFeedback } from 'reactstrap';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import SignUpForm from './SignUp.js'
 
 class SignInForm extends Component {
@@ -28,37 +32,40 @@ class SignInForm extends Component {
 
     render() {
         return (
-            <Form>
-                {/* email */}
-                <FormGroup>
-                    <Label for="email">Email</Label>
-                    <Input
-                        value={this.state.email}
-                        onChange={this.handleChange}
-                        id="email"
-                        type="email"
-                        name="email"
-                    />
-                </FormGroup>
+            <MuiThemeProvider>
+                <Form>
+                    {/* email */}
+                    <FormGroup>
+                        <TextField
+                            value={this.state.email}
+                            onChange={this.handleChange}
+                            floatingLabelText="Email"
+                            floatingLabelFixed={true}
+                            fullWidth={true}
+                            name="email"
+                        />
+                    </FormGroup>
 
-                {/* password */}
-                <FormGroup>
-                    <Label for="password">Password</Label>
-                    <Input
-                        value={this.state.password}
-                        onChange={this.handleChange}
-                        id="password"
-                        type="password"
-                        name="password"
-                    />
-                </FormGroup>
-                <FormGroup>
-                    <Button color="primary" onClick={(e) => this.handleSignIn(e)} >
-                        Sign-in
-                    </Button>
-                    <span> Don't have an account? Sign up <a href="# "onClick={() => this.handleSignUpInstead()}>Here</a></span>
-                </FormGroup>
-            </Form>
+                    {/* password */}
+                    <FormGroup>
+                        <TextField
+                            value={this.state.password}
+                            onChange={this.handleChange}
+                            floatingLabelText="Password"
+                            floatingLabelFixed={true}
+                            fullWidth={true}
+                            name="password"
+                            type="password"
+                        />
+                    </FormGroup>
+                    <FormGroup>
+                        <RaisedButton primary={true} onClick={(e) => this.handleSignIn(e)} >
+                            Sign-in
+                    </RaisedButton>
+                        <span> Don't have an account? Sign up <a href="# " onClick={() => this.handleSignUpInstead()}>Here</a></span>
+                    </FormGroup>
+                </Form>
+            </MuiThemeProvider>
         )
     }
 

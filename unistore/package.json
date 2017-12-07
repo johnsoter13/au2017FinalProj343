@@ -4,11 +4,13 @@
   "private": true,
   "dependencies": {
     "aos": "^2.2.0",
+    "aphrodite": "^1.2.5",
     "bootstrap": "^4.0.0-beta.2",
     "firebase": "^4.7.0",
     "font-awesome": "^4.7.0",
     "fontawesome": "^4.7.2",
     "moment": "^2.19.3",
+    "material-ui": "^0.20.0",
     "react": "^16.2.0",
     "react-bootstrap": "^0.31.5",
     "react-dom": "^16.2.0",

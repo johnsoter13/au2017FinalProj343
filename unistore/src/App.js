@@ -27,6 +27,7 @@ class App extends Component {
     };
   }
 
+  
   componentDidMount() {
     this.dbRef = firebase.database().ref();
     this.dbRef.on('value', (snapshot) => {
