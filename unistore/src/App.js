@@ -12,6 +12,8 @@ import sellImg from './img/sell.png';
 import firebase from 'firebase/app';
 import SignUpForm from './SignUp';
 import SignInForm from './SignIn';
+import CircularProgress from 'material-ui/CircularProgress';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import 'firebase/auth';
 import 'firebase/database';
 
@@ -160,9 +162,11 @@ class App extends Component {
     }
 
     return (
-      <div>
-          {content}
-      </div>
+      <MuiThemeProvider>
+        <div>
+          {this.state.loading ? (<div><CircularProgress size={150} thickness={7} /></div>) : (content)}
+        </div>
+      </MuiThemeProvider>
     );
   }
 }
