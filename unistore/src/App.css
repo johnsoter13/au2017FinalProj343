@@ -1,13 +1,75 @@
+/* body {
+  background: url(./img/book.jpg);
+  background-size: 100%;
+  background-position: absolute;
+  background-repeat: no-repeat;
+} */
+
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  box-sizing: border-box;
+  background:linear-gradient(0deg,rgba(39, 153, 191, 0.1),rgba(39, 153, 191,0.3)),url(./img/book.jpg);
+  background-size:cover;
+  background-position: center;
+  }
+
+
+#background {
+  width: 100%;
+  margin-bottom: 100px;
 }
 
-.form-control-feedback {
-  text-align: left;
-  width: auto;
-  height: auto;
-  position: relative;
+#buyImg, #sellImg {
+  width: 20%;
+}
+
+/* #buyImg {
+  margin-right: 20px;
+}
+
+#sellImg {
+  margin-left: 20px;
+} */
+
+hr {
+  width: 60px;
+}
+
+/* #sell {
+  background-image: url('./img/book.jpg');
+  background-size: cover;
+} */
+
+#pagetext {
+  margin-top: 7rem;
+  background-color: rgba(0, 0, 0, 0.39);
+  color: white;
+}
+
+#learn {
+    position: relative;
+    display: block;
+    padding: 19px 39px 18px 39px;
+    color: #FFF;
+    margin: 0 auto;
+    background: rgba(4, 118, 170, 0);
+    font-size: 18px;
+    text-align: center;
+    font-style: normal;
+    width: 20%;
+    border: 2px solid #838383;
+    border-width: 3px 3px 3px 3px;
+    margin-bottom: 10px;
+}
+
+#learn:hover
+{
+    transition: 0.3s;
+    background: rgba(185, 210, 221, 0.44);
+}
+
+#sell h1 {
+    text-align: center;
+}
+
+#buysellimg {
+  background-color: white;
 }
