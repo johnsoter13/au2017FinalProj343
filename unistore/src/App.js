@@ -11,7 +11,10 @@ import buyImg from './img/buy.png';
 import sellImg from './img/sell.png';
 import firebase from 'firebase/app';
 import SignUpForm from './SignUp';
-import SignInForm from './SignUp';
+import SignInForm from './SignIn';
+import 'firebase/auth';
+import 'firebase/database';
+
 
 class App extends Component {
   constructor(props) {
@@ -62,14 +65,14 @@ class App extends Component {
         this.setState({ errorMessage: error.message });
       })
 
-      let newUser = {
-        userEmail: email,
-        userName: handle,
-        userPhoto: avatar
-      }
-  
-      this.dbRef.child('users').child(handle).set(newUser)
-        .catch(error => console.log(error));
+    let newUser = {
+      userEmail: email,
+      userName: handle,
+      userPhoto: avatar
+    }
+
+    this.dbRef.child('users').child(handle).set(newUser)
+      .catch(error => console.log(error));
   }
 
   handleSignOut() {
@@ -100,6 +103,13 @@ class App extends Component {
   }
 
   render() {
+    let sellCallback = (routerProps) => {
+      return <Sell {...routerProps} user={this.state.user} />
+    }
+    let buyCallback = (routerProps) => {
+      return <Buy {...routerProps} user={this.state.user} />
+    }
+
     let content = null;
     //if logged out, show signup form
     if (!this.state.user) {
@@ -124,57 +134,62 @@ class App extends Component {
       }
     }
     else {
-
       content = (
-        <div className="container">
-          {this.state.user &&
-            <button className="logoutBtn btn btn-warning"
-              onClick={() => this.handleSignOut()}>
-              Log Out
+        <div>
+          <BrowserRouter basename={process.env.PUBLIC_URL + '/'}>
+            <div className="App">
+              <Switch>
+                <Route exact path='/' component={Home} />
+                <Route path='/Buy' render={buyCallback} />
+                <Route path='/Sell' render={sellCallback} />
+                <Route path='/Explore' component={Explore} />
+                <Route exact redirect='/' component={Home} />
+              </Switch>
+            </div>
+          </BrowserRouter>
+          <div className="container">
+            {this.state.user &&
+              <button className="logoutBtn btn btn-warning"
+                onClick={() => this.handleSignOut()}>
+                Log Out
           </button>
-          }
+            }
+          </div>
         </div>
       )
     }
 
     return (
-      <BrowserRouter basename={process.env.PUBLIC_URL+'/'}>
-        <div className="App">
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route path='/Buy' component={Buy} />
-            <Route path='/Sell' component={Sell} />
-            <Route path='/Explore' component={Explore} />
-            <Route exact redirect='/' component={Home} />
-          </Switch>
-        </div>
-      </BrowserRouter>
+      <div>
+          {content}
+      </div>
     );
   }
 }
+
 
 class Home extends Component {
   render() {
     return (
       <div>
-      <NavBar/>
-      <div id="pagetext" className="container jumbotron">
-        <h1>Lorem ipsum dolor sit amet, nemore imperdiet eu eum</h1>
-        <h4>Lorem ipsum dolor sit amet, nemore imperdiet eu eum, aliquam omnesque scribentur vim te. Ius enim duis porro et, te invidunt definitiones mea, melius eloquentiam est ei. Et aliquam convenire sit, mei ad qualisque evertitur. Ex vel graece inermis accommodare, ex placerat concludaturque nec.</h4>
-      <input id="learn" type="button" value="Learn More" />
-      </div>
-      <br/>
-      <div id="buysellimg" className="jumbotron text-center">
-        <Link to='/Buy'>
-          <input id="buyImg" type="image" src={buyImg}/>
-          <h2>Buy Books</h2>
-        </Link>
-        <Link to='/Sell'>
-          <input id="sellImg" type="image" src={sellImg}/>
-          <h2>Sell Books</h2>
-        </Link>
-      </div>
-      <Footer/>
+        <NavBar />
+        <div id="pagetext" className="container jumbotron">
+          <h1>Lorem ipsum dolor sit amet, nemore imperdiet eu eum</h1>
+          <h4>Lorem ipsum dolor sit amet, nemore imperdiet eu eum, aliquam omnesque scribentur vim te. Ius enim duis porro et, te invidunt definitiones mea, melius eloquentiam est ei. Et aliquam convenire sit, mei ad qualisque evertitur. Ex vel graece inermis accommodare, ex placerat concludaturque nec.</h4>
+          <input id="learn" type="button" value="Learn More" />
+        </div>
+        <br />
+        <div id="buysellimg" className="jumbotron text-center">
+          <Link to='/Buy'>
+            <input id="buyImg" type="image" src={buyImg} />
+            <h2>Buy Books</h2>
+          </Link>
+          <Link to='/Sell'>
+            <input id="sellImg" type="image" src={sellImg} />
+            <h2>Sell Books</h2>
+          </Link>
+        </div>
+        <Footer />
       </div>
     )
   }

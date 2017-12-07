@@ -6,7 +6,7 @@ import UniLogo from '../img/Wlogo.jpg';
       render() {
         return (
           <nav id="navbar" className="navbar navbar-expand-lg navbar-dark bg-dark">
-          <img id="unilogo" class="rounded-circle img-fluid" src={UniLogo} aria="University Logo"/>
+          {/* <img id="unilogo" className="rounded-circle img-fluid" src={UniLogo} aria-label="University Logo"/> */}
           <a className="navbar-brand" href="/">
             <Link to="/" id="logo"><h1>Uni<span>Store</span></h1></Link>
             <h4>University of Washington</h4>

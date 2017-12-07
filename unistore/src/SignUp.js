@@ -1,5 +1,4 @@
 import React, { Component } from 'react'; //import React Component
-import { TextField, MuiThemeProvider, muiThemebtn } from 'material-ui/TextField';
 import { Form, FormGroup, Label, Input, Button, Alert, FormFeedback } from 'reactstrap';
 import noUserPic from './img/no-user-pic.png';
 
@@ -76,9 +75,6 @@ class SignUpForm extends Component {
     
         function signupValid() {
           return !emailValid || !passwordValid || !handleValid;
-        }
-        function signinValid() {
-          return !emailValid || !passwordValid
         }
     
         // const SignUp = () => (
