@@ -24,7 +24,6 @@ class Buy extends Component {
         let newState = {};
         newState[event.target.name] = event.target.value;
         this.setState({ [event.target.name]: newState[event.target.name] });
-        console.log(this.state.listings);
     }
 
     handleSearch(event) {
@@ -45,6 +44,10 @@ class Buy extends Component {
         });
     }
 
+    handleBuy = (item) => {
+        this.dbRef.child('items').child(item.class).child(item.id).remove()
+    }
+
     render() {
         let content;
 
@@ -53,6 +56,7 @@ class Buy extends Component {
                 <BuyList
                     price={this.state.maxPrice}
                     listings={this.state.listings}
+                    handleBuyCallback={(item) => this.handleBuy(item)}
                 />
             )
         }

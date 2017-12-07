@@ -21,6 +21,7 @@ class Sell extends Component {
         let newState = {};
         newState[event.target.name] = event.target.value;
         this.setState({ [event.target.name]: newState[event.target.name] });
+        console.log(event.target.value);
     }
 
     handleSell(event) {
@@ -33,9 +34,11 @@ class Sell extends Component {
 
         let newItem = {
             department: this.state.deptInput,
+            class: this.state.classInput,
             price: this.state.priceInput,
             sellerName: this.props.user.displayName,
-            photoUrl: this.state.photoInput
+            photoUrl: this.state.photoInput,
+            time: firebase.database.ServerValue.TIMESTAMP
         }
 
         this.dbRef.child('items').child(this.state.classInput).push(newItem)
@@ -71,7 +74,7 @@ class Sell extends Component {
                             <fieldset>
                                 <legend><span className="number">2</span> Book Info</legend>
                                 <Input type="text" name="priceInput" onChange={this.handleChange} placeholder="Price *" />
-                                <Input type="photo" onChange={this.handleChange} name="classInput" placeholder="Upload Picture" />
+                                <Input type="photo" onChange={this.handleChange} name="photoInput" placeholder="Upload Picture" />
                             </fieldset>
                             <input type="button" onClick={(event) => this.handleSell(event)} value="Post" />
                             <input type="button" value="Cancel" />
