@@ -47,7 +47,7 @@ hr {
 #learn {
     position: relative;
     display: block;
-    padding: 19px 39px 18px 39px;
+    padding: 0;
     color: #FFF;
     margin: 0 auto;
     background: rgba(4, 118, 170, 0);

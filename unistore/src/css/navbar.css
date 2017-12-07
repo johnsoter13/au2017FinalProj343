@@ -34,7 +34,6 @@ nav .nav-link {
 }
 
 h1 span {
-  color:  #5383d3;
   font: normal 36px 'Cookie', cursive;
 }
 
@@ -49,3 +48,8 @@ a h1 {
 a h4 {
   line-height: 60%;
 }
+
+.navbar-toggler-icon {
+  color: black;
+}
+
