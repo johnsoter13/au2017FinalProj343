@@ -1,0 +1,25 @@
+.listing {
+}
+
+section {
+    margin-right: 1rem;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border: 3px solid black;
+    overflow: hidden;
+    background-color: white;
+}
+
+img {
+    float: left;
+    width: 100px;
+    height: 200px;
+    margin-right: .5rem;
+    margin-bottom: .5rem;
+}
+
+p {
+    margin: 0;
+}
