@@ -99,6 +99,4 @@ class Buy extends Component {
     }
 }
 
-
-
 export default Buy;

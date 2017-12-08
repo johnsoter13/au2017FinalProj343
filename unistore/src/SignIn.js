@@ -1,10 +1,8 @@
 import React, { Component } from 'react'; //import React Component
-import { Form, FormGroup, Label, Input, Button, Alert, FormFeedback } from 'reactstrap';
+import { Form, FormGroup} from 'reactstrap';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import SignUpForm from './SignUp.js'
 
 class SignInForm extends Component {
     constructor(props) {
