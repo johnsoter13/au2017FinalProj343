@@ -45,12 +45,17 @@ class Buy extends Component {
     }
 
     handleBuy = (item) => {
-        this.dbRef.child('items').child(item.class).child(item.id).remove()
+        let boughtItem;
+        this.dbRef.child('items').child(item.class).child(item.id).on('value', (snapshot) => {
+            boughtItem = snapshot.val();
+        });
+        this.dbRef.child('users').child(this.props.user.displayName).child("bought_items").push(boughtItem);
+        this.dbRef.child('items').child(item.class).child(item.id).remove();
     }
 
     render() {
         let content;
-
+        console.log(this.state.listings);
         if (this.state.hasSearched) {
             content = (
                 <BuyList
@@ -102,7 +107,5 @@ class Buy extends Component {
         )
     }
 }
-
-
 
 export default Buy;
