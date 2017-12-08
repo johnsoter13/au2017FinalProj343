@@ -16,6 +16,7 @@ import CircularProgress from 'material-ui/CircularProgress';
 import FlatButton from 'material-ui/FlatButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { StyleSheet, css } from 'aphrodite';
+import Profile from './Components/Profile.js';
 import 'firebase/auth';
 import 'firebase/database';
 
@@ -148,7 +149,7 @@ class App extends Component {
     else {
       content = (
         <div>
-          <div className={css(styles.logOutBar)}>
+          <div className={css(styles.logOutBar)}>University Of Washington
             {this.state.user &&
               <FlatButton className={css(styles.logOutButton)} primary={true} label="Log Out" onClick={() => this.handleSignOut()}/>
             }
@@ -159,7 +160,12 @@ class App extends Component {
                 <Route exact path='/' component={Home} />
                 <Route path='/Buy' render={buyCallback} />
                 <Route path='/Sell' render={sellCallback} />
+
                 <Route path='/Explore' render={exploreCallback} />
+
+               
+                <Route path='/Profile' render={(props) => <Profile user={this.state.user}/>} />
+
                 <Route exact redirect='/' component={Home} />
               </Switch>
             </div>
@@ -210,7 +216,8 @@ const styles = StyleSheet.create({
   logOutBar:{
     height: "37px",
     width: "100%",
-    backgroundColor: "#343a40"
+    color: "#E1E1E1",
+    backgroundColor: "#202D33"
   },
 
   logOutButton:{

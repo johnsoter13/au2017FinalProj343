@@ -1,12 +1,12 @@
 /* body {
-  background: url(./img/book.jpg);
+  background: url(./img/bg.jpg);
   background-size: 100%;
   background-position: absolute;
   background-repeat: no-repeat;
 } */
 
 body {
-  background:linear-gradient(0deg,rgba(39, 153, 191, 0.1),rgba(39, 153, 191,0.3)),url(./img/book.jpg);
+  background:linear-gradient(0deg,rgba(39, 153, 191, 0.1),rgba(39, 153, 191,0.3)),url(./img/bg.jpg);
   background-size:cover;
   background-position: center;
 }
@@ -40,7 +40,7 @@ hr {
 
 #pagetext {
   margin-top: 7rem;
-  background-color: rgba(0, 0, 0, 0.39);
+  background-color: #153544;
   color: white;
 }
 
@@ -48,9 +48,9 @@ hr {
     position: relative;
     display: block;
     padding: 0;
-    color: #FFF;
+    color: #153544;
     margin: 0 auto;
-    background: rgba(4, 118, 170, 0);
+    background: rgba(254, 254, 254, 0.79);
     font-size: 18px;
     text-align: center;
     font-style: normal;
