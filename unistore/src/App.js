@@ -190,11 +190,6 @@ class Home extends Component {
     return (
       <div>
         <NavBar />
-        <div id="pagetext" className="container jumbotron">
-          <h1>Lorem ipsum dolor sit amet, nemore imperdiet eu eum</h1>
-          <h4>Lorem ipsum dolor sit amet, nemore imperdiet eu eum, aliquam omnesque scribentur vim te. Ius enim duis porro et, te invidunt definitiones mea, melius eloquentiam est ei. Et aliquam convenire sit, mei ad qualisque evertitur. Ex vel graece inermis accommodare, ex placerat concludaturque nec.</h4>
-          <input id="learn" type="button" value="Learn More" />
-        </div>
         <br />
         <div id="buysellimg" className="jumbotron text-center">
           <Link to='/Buy'>

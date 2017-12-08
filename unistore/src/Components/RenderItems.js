@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import './../css/renderedItems.css'
 import { Form, FormGroup, Label, Input, Button, FormFeedback, Alert } from 'reactstrap';
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import RaisedButton from 'material-ui/RaisedButton';
+import { StyleSheet, css } from 'aphrodite';
+import textbook from '../img/textbook.png'
 
 class BuyList extends Component {
     constructor(props) {
@@ -36,7 +40,7 @@ class BuyList extends Component {
             }
         })
         return (
-            <div>{this.listingArray}</div>
+            <div className="d-flex">{this.listingArray}</div>
         )
     }
 }
@@ -63,15 +67,29 @@ class Listing extends Component {
             date = 'Just now';
         }
         return (
-            <section className="listing">
-                <img src={this.props.listing.photoUrl} alt={"photo of " + this.props.listing.class + " book"}></img>
-                <p> {"Class: " + this.props.listing.class} </p>
-                <p> {"Price: $" + this.props.listing.price} </p>
-                <p> {"Posted: " + date} </p>
-                <Input type="button" id={this.props.listing.id} key={this.props.listing.id} onClick={(event) => this.handleBuy(event)} value="buy" />
-            </section>
+            <Card className={css(styles.card)}>
+                <CardMedia><img src={textbook} alt={"photo of " + this.props.listing.class + " book"}></img></CardMedia>
+                <CardTitle title={"Class: " + this.props.listing.class} />
+                <CardText>
+                    <p> {"Price: $" + this.props.listing.price} </p>
+                    <p> {"Posted: " + date} </p>
+                </CardText>
+                <RaisedButton className={css(styles.button)} primary={true} id={this.props.listing.id} key={this.props.listing.id} onClick={(event) => this.handleBuy(event)} value="buy">Buy</RaisedButton>
+            </Card>
         )
     }
 }
+
+const styles = StyleSheet.create({
+    card: {
+        width: "30%",
+        margin: "1em",
+        textAlign: "center"
+    },
+
+    button: {
+        marginBottom: "1em"
+    }
+  });
 
 export default BuyList;
