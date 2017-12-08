@@ -57,10 +57,6 @@ class Buy extends Component {
         this.dbRef.child('items').child(item.class).child(item.id).remove();
     }
 
-    handleCancel(event) {
-        <Link to="/"></Link>
-    }
-
     render() {
         let content;
         
