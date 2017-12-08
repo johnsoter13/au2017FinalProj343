@@ -30,5 +30,5 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://info343b-a17.github.io/UniStore/"
+  "homepage": "https://johnsoter13.github.io/UniStore/"
 }
