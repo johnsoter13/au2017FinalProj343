@@ -50,7 +50,7 @@ class Buy extends Component {
 
     render() {
         let content;
-
+        console.log(this.state.listings);
         if (this.state.hasSearched) {
             content = (
                 <BuyList
