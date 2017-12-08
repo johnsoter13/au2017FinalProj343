@@ -22,7 +22,6 @@ class Sell extends Component {
         let newState = {};
         newState[event.target.name] = event.target.value;
         this.setState({ [event.target.name]: newState[event.target.name] });
-        console.log(event.target.value);
     }
 
     handleSell(event) {
@@ -44,6 +43,7 @@ class Sell extends Component {
 
         this.dbRef.child('items').child(this.state.classInput).push(newItem)
             .catch(error => console.log(error));
+        alert("You have successfully listed an item for purchase!");
     }
 
     render() {
