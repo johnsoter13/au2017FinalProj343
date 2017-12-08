@@ -26,9 +26,9 @@ class Explore extends Component {
         return (
             <div>
                 <NavBar />
-                <div id="content" className="jumbotron">
+
                     <BuyList listings={items} />
-                </div>
+
                 <Footer />
             </div>
         )
