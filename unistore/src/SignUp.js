@@ -1,5 +1,5 @@
 import React, { Component } from 'react'; //import React Component
-import { Form, FormGroup, Label, Input, Button, Alert, FormFeedback } from 'reactstrap';
+import { Form, FormGroup,Button, FormFeedback } from 'reactstrap';
 import { TextField, RaisedButton } from 'material-ui';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { StyleSheet, css } from 'aphrodite';
