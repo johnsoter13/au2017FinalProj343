@@ -141,7 +141,7 @@ class App extends Component {
     else {
       content = (
         <div>
-          <div className={css(styles.logOutBar)}>
+          <div className={css(styles.logOutBar)}>University Of Washington
             {this.state.user &&
               <FlatButton className={css(styles.logOutButton)} primary={true} label="Log Out" onClick={() => this.handleSignOut()}/>
             }
@@ -203,7 +203,8 @@ const styles = StyleSheet.create({
   logOutBar:{
     height: "37px",
     width: "100%",
-    backgroundColor: "#343a40"
+    color: "#E1E1E1",
+    backgroundColor: "#202D33"
   },
 
   logOutButton:{
