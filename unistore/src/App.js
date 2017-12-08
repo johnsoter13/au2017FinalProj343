@@ -16,6 +16,7 @@ import CircularProgress from 'material-ui/CircularProgress';
 import FlatButton from 'material-ui/FlatButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { StyleSheet, css } from 'aphrodite';
+import Profile from './Components/Profile.js';
 import 'firebase/auth';
 import 'firebase/database';
 
@@ -153,6 +154,7 @@ class App extends Component {
                 <Route path='/Buy' render={buyCallback} />
                 <Route path='/Sell' render={sellCallback} />
                 <Route path='/Explore' component={Explore} />
+                <Route path='/Profile' render={(props) => <Profile user={this.state.user}/>} />
                 <Route exact redirect='/' component={Home} />
               </Switch>
             </div>

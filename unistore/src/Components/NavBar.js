@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import UniLogo from '../img/Wlogo.jpg';
 import IconButton from 'material-ui/IconButton';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import Search from 'material-ui/svg-icons/action/search';
 import { StyleSheet, css } from 'aphrodite';
+
+
+// The Navigation bar component allows the user to navigate between different pages in the application
 
 class NavBar extends Component {
   constructor(props) {
