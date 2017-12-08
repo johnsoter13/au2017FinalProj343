@@ -16,8 +16,9 @@ class BuyList extends Component {
         if (this.props.listings == null) {
             return null
         }
-
+        
         this.listingId = Object.keys(this.props.listings);
+        console.log(this.listingId);
         this.listingArray = this.listingId.map((id) => {
             let listing = this.props.listings[id];
             listing.id = id;

@@ -37,6 +37,10 @@ class App extends Component {
     this.dbRef.on('value', (snapshot) => {
       this.setState({ db: snapshot.val() })
     });
+    this.listingsRef = this.dbRef.child('items')
+    this.listingsRef.on('value', (snapshot) => {
+        this.setState({ listings: snapshot.val() })
+    });
 
 
     let authUnRegFunc = firebase.auth().onAuthStateChanged((firebaseUser) => {
@@ -114,6 +118,9 @@ class App extends Component {
     let buyCallback = (routerProps) => {
       return <Buy {...routerProps} user={this.state.user} />
     }
+    let exploreCallback = (routerProps) => {
+      return <Explore {...routerProps} listings={this.state.listings} />
+    }
 
     let content = null;
     //if logged out, show signup form
@@ -152,7 +159,7 @@ class App extends Component {
                 <Route exact path='/' component={Home} />
                 <Route path='/Buy' render={buyCallback} />
                 <Route path='/Sell' render={sellCallback} />
-                <Route path='/Explore' component={Explore} />
+                <Route path='/Explore' render={exploreCallback} />
                 <Route exact redirect='/' component={Home} />
               </Switch>
             </div>
