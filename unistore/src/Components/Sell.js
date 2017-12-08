@@ -5,6 +5,7 @@ import Footer from './Footer.js';
 import 'firebase/auth';
 import 'firebase/database';
 import firebase from 'firebase/app'
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 
 class Sell extends Component {
     constructor(props) {
@@ -77,7 +78,7 @@ class Sell extends Component {
                                 <Input type="photo" onChange={this.handleChange} name="photoInput" placeholder="Upload Picture" />
                             </fieldset>
                             <input type="button" onClick={(event) => this.handleSell(event)} value="Post" />
-                            <input type="button" value="Cancel" />
+                            <Link to="/"><Input type="button" value="Cancel" /></Link>  
                         </Form>
                     </div>
                 </div>

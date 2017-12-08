@@ -11,32 +11,23 @@ import BuyList from './RenderItems.js'
 class Explore extends Component {
     constructor(props) {
         super(props)
-
     }
+    
     render() {
-        console.log(this.props.listings);
-            
+        let items = {}
         this.values = Object.values(this.props.listings);
-        console.log(this.values);
-        
-
-        // this.listingArray = this.listingId.map((id) => {
-        //     let listing = this.props.listings[id];
-        //     listing.id = id;
-        //     // fix item selecting/string equality
-        //     if (listing.price < this.props.price) {
-        //         return <Listing
-        //             key={id}
-        //             listing={listing}
-        //             handleBuyCallback={(item) => this.handleBuyCallback(item)}
-        //         />
-        //     }
-        // })
+        for(let i = 0; i < this.values.length; i++) {
+            this.listingValue = Object.values(this.values[i]);
+            this.listingId = Object.keys(this.values[i]);
+            for(let j = 0; j < this.listingId.length; j++) {
+                items[this.listingId[j]] = this.listingValue[j]
+            }
+        }
         return (
             <div>
                 <NavBar />
                 <div id="content" className="jumbotron">
-                    <BuyList listings={this.values} />
+                    <BuyList listings={items} />
                 </div>
                 <Footer />
             </div>

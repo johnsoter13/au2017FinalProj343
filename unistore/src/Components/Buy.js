@@ -6,6 +6,8 @@ import 'firebase/auth';
 import 'firebase/database';
 import firebase from 'firebase/app'
 import BuyList from './RenderItems.js'
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+
 
 class Buy extends Component {
     constructor(props) {
@@ -48,9 +50,13 @@ class Buy extends Component {
         this.dbRef.child('items').child(item.class).child(item.id).remove()
     }
 
+    handleCancel(event) {
+        <Link to="/"></Link>
+    }
+
     render() {
         let content;
-        console.log(this.state.listings);
+        
         if (this.state.hasSearched) {
             content = (
                 <BuyList
@@ -87,7 +93,7 @@ class Buy extends Component {
                             <Input type="text" name="priceInput" onChange={this.handleChange} placeholder="Max Price *" />
                         </fieldset>
                         <Input type="button" onClick={(event) => this.handleSearch(event)} value="Search" />
-                        <Input type="button" value="Cancel" />
+                        <Link to="/"><Input type="button" value="Cancel" /></Link>
                     </Form>
                 </div>
             </div>
