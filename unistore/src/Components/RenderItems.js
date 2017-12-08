@@ -12,17 +12,22 @@ class BuyList extends Component {
         this.props.handleBuyCallback(item);
     }
 
+
+
     render() {
         if (this.props.listings == null) {
             return null
         }
 
         this.listingId = Object.keys(this.props.listings);
-        console.log(this.listingId);
         this.listingArray = this.listingId.map((id) => {
             let listing = this.props.listings[id];
-            listing.id = id;            
-            if (Number(this.props.price) > Number(listing.price)) {
+
+            listing.id = id;
+            // fix item selecting/string equality
+            if (Number(listing.price) < Number(this.props.price) || this.props.price == null) {
+
+
                 return <Listing
                     key={id}
                     listing={listing}
