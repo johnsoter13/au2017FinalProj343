@@ -24,7 +24,6 @@ class BuyList extends Component {
         this.listingId = Object.keys(this.props.listings);
         this.listingArray = this.listingId.map((id) => {
             let listing = this.props.listings[id];
-
             listing.id = id;
             // fix item selecting/string equality
             if (Number(listing.price) < Number(this.props.price) || this.props.price == null || this.props.price == '') {
@@ -63,9 +62,17 @@ class Listing extends Component {
         if (date === 'in a few seconds') {
             date = 'Just now';
         }
+
+        let photoURL = "";
+        if (this.props.listing.photoUrl) {
+            photoURL = this.props.listing.photoUrl;
+        } else {
+            photoURL = textbook;
+        }
+        
         return (
             <Card className={css(styles.card)}>
-                <CardMedia><img src={textbook} alt={"photo of " + this.props.listing.class + " book"}></img></CardMedia>
+                <CardMedia><img src={photoURL} alt={"photo of " + this.props.listing.class + " book"}></img></CardMedia>
                 <CardTitle title={"Class: " + this.props.listing.class} />
                 <CardText>
                     <p> {"Price: $" + this.props.listing.price} </p>

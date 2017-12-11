@@ -40,7 +40,7 @@ class App extends Component {
     });
     this.listingsRef = this.dbRef.child('items')
     this.listingsRef.on('value', (snapshot) => {
-        this.setState({ listings: snapshot.val() })
+      this.setState({ listings: snapshot.val() })
     });
 
     // Sets the user state to the current user logged in
@@ -99,6 +99,7 @@ class App extends Component {
       })
   }
 
+  // Handles sign in
   handleSignIn(email, password) {
     this.setState({ errorMessage: null }); //clear any old errors
 
@@ -147,13 +148,12 @@ class App extends Component {
           </div>
         );
       }
-    }
-    else {
+    } else { // Shows entire UniStore
       content = (
         <div>
           <div className={css(styles.logOutBar)}>University Of Washington
             {this.state.user &&
-              <FlatButton className={css(styles.logOutButton)} primary={true} label="Log Out" onClick={() => this.handleSignOut()}/>
+              <FlatButton className={css(styles.logOutButton)} primary={true} label="Log Out" onClick={() => this.handleSignOut()} />
             }
           </div>
           <BrowserRouter basename={process.env.PUBLIC_URL + '/'}>
@@ -165,8 +165,8 @@ class App extends Component {
 
                 <Route path='/Explore' render={exploreCallback} />
 
-               
-                <Route path='/Profile' render={(props) => <Profile user={this.state.user}/>} />
+
+                <Route path='/Profile' render={(props) => <Profile user={this.state.user} />} />
 
                 <Route exact redirect='/' component={Home} />
               </Switch>
@@ -178,7 +178,8 @@ class App extends Component {
 
     return (
       <MuiThemeProvider>
-        <div>
+        <div> 
+          {/* Shows the loading circle if loading, content if not */}
           {this.state.loading ? (<div><CircularProgress size={150} thickness={7} /></div>) : (content)}
         </div>
       </MuiThemeProvider>
@@ -186,7 +187,7 @@ class App extends Component {
   }
 }
 
-
+// Home component that shows the option to buy or sell books
 class Home extends Component {
   render() {
     return (
@@ -210,14 +211,14 @@ class Home extends Component {
 }
 
 const styles = StyleSheet.create({
-  logOutBar:{
+  logOutBar: {
     height: "37px",
     width: "100%",
     color: "#E1E1E1",
     backgroundColor: "#202D33"
   },
 
-  logOutButton:{
+  logOutButton: {
     position: "relative",
     float: "right"
   }

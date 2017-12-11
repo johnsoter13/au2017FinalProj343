@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import NavBar from './NavBar.js';
 import Footer from './Footer.js';
+import firebase from  'firebase';
 import CircularProgress from 'material-ui/CircularProgress';
 import BuyList from './RenderItems.js'
 
+// This component renders all the current listings that are in the database
 class Explore extends Component {
     constructor(props) {
         super(props)
@@ -16,6 +18,8 @@ class Explore extends Component {
         this.setState({ loading: false });
     }
 
+    // Handles the buying by pushing the bought item to the current user
+    // and removing it from the original owner
     handleBuy = (item) => {
         this.dbRef = firebase.database().ref();
         this.dbRef.on('value', (snapshot) => {
