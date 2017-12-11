@@ -122,7 +122,7 @@ class App extends Component {
       return <Buy {...routerProps} user={this.state.user} />
     }
     let exploreCallback = (routerProps) => {
-      return <Explore {...routerProps} listings={this.state.listings} />
+      return <Explore {...routerProps} user={this.state.user} listings={this.state.listings} />
     }
 
     let content = null;
