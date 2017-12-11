@@ -30,6 +30,10 @@ class Buy extends Component {
 
     handleSearch(event) {
         event.preventDefault();
+        console.log(this.state.deptInput);
+        if(this.state.deptInput == '' || this.state.classInput == '') {
+            return null;
+        }
         this.setState({
             hasSearched: true,
             maxPrice: this.state.priceInput

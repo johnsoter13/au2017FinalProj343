@@ -18,7 +18,7 @@ class BuyList extends Component {
 
     render() {
         if (this.props.listings == null) {
-            return null
+            return <div> <p> No content to show. Try changing your search! </p> </div>
         }
 
         this.listingId = Object.keys(this.props.listings);
@@ -27,7 +27,6 @@ class BuyList extends Component {
 
             listing.id = id;
             // fix item selecting/string equality
-            console.log(this.props.listings);
             if (Number(listing.price) < Number(this.props.price) || this.props.price == null || this.props.price == '') {
 
 
