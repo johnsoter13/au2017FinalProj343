@@ -21,6 +21,22 @@ class Explore extends Component {
         this.setState({ loading: false });
     }
 
+    handleBuy = (item) => {
+        this.dbRef = firebase.database().ref();
+        this.dbRef.on('value', (snapshot) => {
+            this.setState({ db: snapshot.val() })
+        });
+        
+        let boughtItem;
+
+        this.dbRef.child('items').child(item.class).child(item.id).on('value', (snapshot) => {
+            boughtItem = snapshot.val();
+        });
+        alert("You have successfully bought a " + boughtItem.class + " book for $" + boughtItem.price);
+        this.dbRef.child('users').child(this.props.user.displayName).child("bought_items").push(boughtItem);
+        this.dbRef.child('items').child(item.class).child(item.id).remove();
+    }
+
     render() {
         let items = {}
         if (this.props.listings) {
@@ -39,7 +55,8 @@ class Explore extends Component {
                 <NavBar />
                 <div id="content" className="jumbotron">
                     {this.state.loading ? (<div><CircularProgress size={150} thickness={7} /></div>) :
-                        (<BuyList listings={items} />)}
+                        (<BuyList listings={items}
+                                  handleBuyCallback={(item) => this.handleBuy(item)} />)}
                 </div>
                 <Footer />
             </div>

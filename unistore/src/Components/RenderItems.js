@@ -27,7 +27,8 @@ class BuyList extends Component {
 
             listing.id = id;
             // fix item selecting/string equality
-            if (Number(listing.price) < Number(this.props.price) || this.props.price == null) {
+            console.log(this.props.listings);
+            if (Number(listing.price) < Number(this.props.price) || this.props.price == null || this.props.price == '') {
 
 
                 return <Listing
