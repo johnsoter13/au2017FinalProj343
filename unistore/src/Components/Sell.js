@@ -14,7 +14,8 @@ class Sell extends Component {
             deptInput: '',
             priceInput: '',
             classInput: '',
-            photoInput: ''
+            photoInput: '',
+            authorInput: ''
         }
     }
 
@@ -37,6 +38,7 @@ class Sell extends Component {
         let newItem = {
             department: this.state.deptInput,
             class: this.state.classInput,
+            author: this.state.authorInput,
             price: this.state.priceInput,
             sellerName: this.props.user.displayName,
             photoUrl: this.state.photoInput,
@@ -114,7 +116,8 @@ class Sell extends Component {
                             </fieldset>
                             <fieldset>
                                 <legend><span className="number">2</span> Book Info</legend>
-                                <Input type="text" name="priceInput" onChange={this.handleChange} placeholder="Price *" />
+                                <Input type="text"  onChange={this.handleChange} name="authorInput" placeholder="Author *" />
+                                <Input type="text"  onChange={this.handleChange} name="priceInput" placeholder="Price *" />
                                 <Input type="photo" onChange={this.handleChange} name="photoInput" placeholder="Upload Picture" />
                             </fieldset>
                             <input type="button" onClick={(event) => this.handleSell(event)} value="Post" />
