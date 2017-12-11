@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
 import Logo from '../img/unistore-logo.png';
-import IconButton from 'material-ui/IconButton';
-import Drawer from 'material-ui/Drawer';
-import MenuItem from 'material-ui/MenuItem';
-import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
-import Search from 'material-ui/svg-icons/action/search';
-import { StyleSheet, css } from 'aphrodite';
-
+import { Link } from 'react-router-dom';
 
 // The Navigation bar component allows the user to navigate between different pages in the application
 
@@ -23,15 +17,14 @@ class NavBar extends Component {
 
       <nav id="navbar" className="navbar navbar-expand-sm navbar-light bg-light">
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
-        <span className="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
 
         <a className="navbar-brand">
-            {/* <Link to="/" id="logo"><h1>Uni<span>Store</span></h1></Link> */}
-            <Link to="/"><img id="logo" src={Logo} aria-label="UniStore Logo"/></Link>
-          </a>
+          <Link to="/"><img id="logo" src={Logo} aria-label="UniStore Logo" alt="UniStore logo" /></Link>
+        </a>
 
-        <div className="collapse navbar-collapse" id="nav-content">   
+        <div className="collapse navbar-collapse" id="nav-content">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item home">
               <Link id="navlink" className="nav-link" to="/">HOME</Link>
@@ -48,11 +41,5 @@ class NavBar extends Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  white: {
-    color: "white"
-  }
-});
 
 export default NavBar;

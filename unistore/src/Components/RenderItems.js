@@ -29,7 +29,6 @@ class BuyList extends Component {
             // fix item selecting/string equality
             if (Number(listing.price) < Number(this.props.price) || this.props.price == null) {
 
-
                 return <Listing
                     key={id}
                     listing={listing}

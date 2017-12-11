@@ -32,7 +32,7 @@ class App extends Component {
     };
   }
 
-  
+  // Connects to Firebase database to find all the listings of items
   componentDidMount() {
     this.dbRef = firebase.database().ref();
     this.dbRef.on('value', (snapshot) => {
@@ -43,7 +43,7 @@ class App extends Component {
         this.setState({ listings: snapshot.val() })
     });
 
-
+    // Sets the user state to the current user logged in
     let authUnRegFunc = firebase.auth().onAuthStateChanged((firebaseUser) => {
       if (firebaseUser) {
         this.setState({
@@ -61,6 +61,7 @@ class App extends Component {
     });
   }
 
+  // Handles sign in verification
   handleSignUp(email, password, handle, avatar) {
     this.setState({ errorMessage: null }); //clear any old errors
 
@@ -85,6 +86,7 @@ class App extends Component {
       .catch(error => console.log(error));
   }
 
+  // Handles signing out 
   handleSignOut() {
     this.setState({
       errorMessage: null,

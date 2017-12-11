@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 import NavBar from './NavBar.js';
-import { Form, FormGroup, Label, Input, Button, FormFeedback, Alert } from 'reactstrap';
 import Footer from './Footer.js';
 import CircularProgress from 'material-ui/CircularProgress';
-import 'firebase/auth';
-import 'firebase/database';
-import firebase from 'firebase/app'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import BuyList from './RenderItems.js'
 
 class Explore extends Component {
@@ -37,7 +32,7 @@ class Explore extends Component {
         return (
             <div>
                 <NavBar />
-                <div id="content" className="jumbotron">
+                <div className="container">
                     {this.state.loading ? (<div><CircularProgress size={150} thickness={7} /></div>) :
                         (<BuyList listings={items} />)}
                 </div>
