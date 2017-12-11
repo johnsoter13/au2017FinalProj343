@@ -1,42 +1,48 @@
-/* body {
-  background: url(./img/bg.jpg);
-  background-size: 100%;
-  background-position: absolute;
-  background-repeat: no-repeat;
-} */
-
 body {
   background:linear-gradient(0deg,rgba(39, 153, 191, 0.1),rgba(39, 153, 191,0.3)),url(./img/bg.jpg);
   background-size:cover;
   background-position: center;
 }
 
+.App-header {
+  background-color: rgba(255, 255, 255, 0);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
 
-#background {
+.App-logo {
+  display: inline-block;
   width: 100%;
-  margin-bottom: 100px;
+  height: auto;
+}
+
+.container {
+  max-width: 500px;
+}
+
+.container .jumbotron {
+  background-color: rgba(36, 118, 148, 0.05);
+  border: 3px solid rgba(15, 110, 151, 0.20);
+  margin-top: 8rem;
+  align-self: auto;
+}
+
+.container .jumbotron {
+  max-width: 500px;
+  text-align: center;
 }
 
 #buyImg, #sellImg {
   width: 20%;
 }
 
-/* #buyImg {
-  margin-right: 20px;
-}
-
-#sellImg {
-  margin-left: 20px;
-} */
 
 hr {
   width: 60px;
 }
 
-/* #sell {
-  background-image: url('./img/book.jpg');
-  background-size: cover;
-} */
 
 #pagetext {
   margin-top: 7rem;

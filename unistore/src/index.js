@@ -5,6 +5,7 @@ import './css/navbar.css';
 import './css/footer.css';
 import './css/sell.css';
 import './css/explore.css';
+import './css/about.css';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.min.css';

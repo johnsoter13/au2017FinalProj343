@@ -109,7 +109,7 @@
 	width: 20%;
 }
 
-.footer-distributed .footer-company-about{
+.footer-distributed .footer-stay-connected{
 	line-height: 20px;
 	color:  #92999f;
 	font-size: 13px;
@@ -117,7 +117,7 @@
 	margin: 0;
 }
 
-.footer-distributed .footer-company-about span{
+.footer-distributed .footer-stay-connected span{
 	display: block;
 	color:  #ffffff;
 	font-size: 14px;
@@ -134,7 +134,7 @@
 	width: 35px;
 	height: 35px;
 	cursor: pointer;
-	background-color:  #33383b;
+	background-color:  #0475AA;
 	border-radius: 2px;
 
 	font-size: 20px;

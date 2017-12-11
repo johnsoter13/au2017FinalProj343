@@ -35,6 +35,9 @@ class Footer extends Component {
         
               <div className="footer-right">
         
+                <p className="footer-stay-connected">
+                  <span>Stay Connected</span>
+                    Keep up to date and follow us
                 <p className="footer-company-about">
                   <span>About the company</span>
                   We're all about furthering education without the exorbitant costs of textbooks.
