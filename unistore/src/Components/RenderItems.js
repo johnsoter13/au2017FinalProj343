@@ -7,27 +7,31 @@ import RaisedButton from 'material-ui/RaisedButton';
 import { StyleSheet, css } from 'aphrodite';
 import textbook from '../img/textbook.png'
 
+// this creates a list of items to display
 class BuyList extends Component {
     constructor(props) {
         super(props);
     }
 
+    //callback for buying an item which is handled in the Buy class
     handleBuyCallback = (item) => {
         this.props.handleBuyCallback(item);
     }
 
+    //this is rendered if a user makes a search and theres no content there to display
     render() {
         if (this.props.listings == null) {
             return <div> <p> No content to show. Try changing your search! </p> </div>
         }
 
+        // this maps the ids of the object to an array that gets passed to the Listing class which renders the list item
         this.listingId = Object.keys(this.props.listings);
         this.listingArray = this.listingId.map((id) => {
             let listing = this.props.listings[id];
             listing.id = id;
-            // fix item selecting/string equality
+            // this will only allow posts under the max price entered by the user to be displayed
+            // if the user puts no max price all items will be displayed
             if (Number(listing.price) < Number(this.props.price) || this.props.price == null || this.props.price == '') {
-
                 return <Listing
                     key={id}
                     listing={listing}
@@ -41,10 +45,14 @@ class BuyList extends Component {
     }
 }
 
+// this class creates individual items to be rendered by the BuyList
 class Listing extends Component {
     constructor(props) {
         super(props);
     }
+    // when a user clicks on buy it creates an item to be passed up the callback chain.
+    // you need more than one value to remove from firebase so creating one object
+    // and passing that as a variable works nicely
     handleBuy = (event) => {
         event.preventDefault();
         let item = {
@@ -54,16 +62,20 @@ class Listing extends Component {
         this.props.handleBuyCallback(item)
     }
 
-    // listings need to be styled
+    // this is where a post gets rendered
     render() {
+        // displays time from when post was created
         let date = (moment(this.props.listing.time)).fromNow();
+        let author = this.props.listing.author;
+        let photoURL = "";
         // since database and moment servers aren't in synch, time of recent post could be in the future
         // even though its not. This stops that from happening.
         if (date === 'in a few seconds') {
             date = 'Just now';
         }
-
-        let photoURL = "";
+        if (author == null) {
+            author = 'Not listed'
+        }
         if (this.props.listing.photoUrl) {
             photoURL = this.props.listing.photoUrl;
         } else {
@@ -75,6 +87,7 @@ class Listing extends Component {
                 <CardMedia><img src={photoURL} alt={"photo of " + this.props.listing.class + " book"}></img></CardMedia>
                 <CardTitle title={"Class: " + this.props.listing.class} />
                 <CardText>
+                    <p> {"By: " + author} </p>
                     <p> {"Price: $" + this.props.listing.price} </p>
                     <p> {"Posted: " + date} </p>
                 </CardText>
@@ -83,7 +96,7 @@ class Listing extends Component {
         )
     }
 }
-
+// aphrodite styles
 const styles = StyleSheet.create({
     card: {
         width: "250px",

@@ -3,8 +3,8 @@ import { Form, FormGroup,Button, FormFeedback } from 'reactstrap';
 import { TextField, RaisedButton } from 'material-ui';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { StyleSheet, css } from 'aphrodite';
-import noUserPic from './img/no-user-pic.png';
-import './Sign.css';
+import noUserPic from './../img/no-user-pic.png';
+import './../css/Sign.css';
 
 class SignUpForm extends Component {
   constructor(props) {
