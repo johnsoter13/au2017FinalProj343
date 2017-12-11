@@ -38,15 +38,13 @@ class Footer extends Component {
                 <p className="footer-stay-connected">
                   <span>Stay Connected</span>
                     Keep up to date and follow us
+                <p className="footer-company-about">
+                  <span>About the company</span>
+                  We're all about furthering education without the exorbitant costs of textbooks.
                 </p>
         
                 <div className="footer-icons">
-        
-                  <a href="#"><i className="fa fa-facebook"></i></a>
-                  <a href="#"><i className="fa fa-twitter"></i></a>
-                  <a href="#"><i className="fa fa-linkedin"></i></a>
-                  <a href="#"><i className="fa fa-github"></i></a>
-        
+                  <a href="https://github.com/johnsoter13/au2017FinalProj343"><i className="fa fa-github"></i></a>
                 </div>
         
               </div>

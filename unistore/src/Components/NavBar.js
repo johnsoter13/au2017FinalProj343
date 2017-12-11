@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
 import Logo from '../img/unistore-logo.png';
-import IconButton from 'material-ui/IconButton';
-import Drawer from 'material-ui/Drawer';
-import MenuItem from 'material-ui/MenuItem';
-import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
-import Search from 'material-ui/svg-icons/action/search';
-import { StyleSheet, css } from 'aphrodite';
-
+import { Link } from 'react-router-dom';
 
 // The Navigation bar component allows the user to navigate between different pages in the application
 
@@ -21,8 +15,7 @@ class NavBar extends Component {
     return (
 
 
-      <nav id="navbar" className="navbar navbar-expand-sm navbar-light bg-light">
-        
+      <nav id="navbar" className="navbar navbar-expand-sm navbar-light bg-light">      
 
         <a className="navbar-brand">
             <Link to="/"><img id="logo" src={Logo} aria-label="UniStore Logo"/></Link>
@@ -48,11 +41,5 @@ class NavBar extends Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  white: {
-    color: "white"
-  }
-});
 
 export default NavBar;

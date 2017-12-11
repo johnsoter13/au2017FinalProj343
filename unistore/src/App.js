@@ -11,8 +11,8 @@ import logo from './img/unistore-logo.png';
 import buyImg from './img/buy.png';
 import sellImg from './img/sell.png';
 import firebase from 'firebase/app';
-import SignUpForm from './SignUp';
-import SignInForm from './SignIn';
+import SignUpForm from './Components/SignUp';
+import SignInForm from './Components/SignIn';
 import CircularProgress from 'material-ui/CircularProgress';
 import FlatButton from 'material-ui/FlatButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -33,7 +33,7 @@ class App extends Component {
     };
   }
 
-  
+  // Connects to Firebase database to find all the listings of items
   componentDidMount() {
     this.dbRef = firebase.database().ref();
     this.dbRef.on('value', (snapshot) => {
@@ -41,10 +41,10 @@ class App extends Component {
     });
     this.listingsRef = this.dbRef.child('items')
     this.listingsRef.on('value', (snapshot) => {
-        this.setState({ listings: snapshot.val() })
+      this.setState({ listings: snapshot.val() })
     });
 
-
+    // Sets the user state to the current user logged in
     let authUnRegFunc = firebase.auth().onAuthStateChanged((firebaseUser) => {
       if (firebaseUser) {
         this.setState({
@@ -62,6 +62,7 @@ class App extends Component {
     });
   }
 
+  // Handles sign in verification
   handleSignUp(email, password, handle, avatar) {
     this.setState({ errorMessage: null }); //clear any old errors
 
@@ -86,6 +87,7 @@ class App extends Component {
       .catch(error => console.log(error));
   }
 
+  // Handles signing out 
   handleSignOut() {
     this.setState({
       errorMessage: null,
@@ -98,6 +100,7 @@ class App extends Component {
       })
   }
 
+  // Handles sign in
   handleSignIn(email, password) {
     this.setState({ errorMessage: null }); //clear any old errors
 
@@ -121,7 +124,7 @@ class App extends Component {
       return <Buy {...routerProps} user={this.state.user} />
     }
     let exploreCallback = (routerProps) => {
-      return <Explore {...routerProps} listings={this.state.listings} />
+      return <Explore {...routerProps} user={this.state.user} listings={this.state.listings} />
     }
 
     let content = null;
@@ -156,13 +159,12 @@ class App extends Component {
           </div>
         );
       }
-    }
-    else {
+    } else { // Shows entire UniStore
       content = (
         <div>
           <div className={css(styles.logOutBar)}>University Of Washington
             {this.state.user &&
-              <FlatButton className={css(styles.logOutButton)} primary={true} label="Log Out" onClick={() => this.handleSignOut()}/>
+              <FlatButton className={css(styles.logOutButton)} primary={true} label="Log Out" onClick={() => this.handleSignOut()} />
             }
           </div>
           <BrowserRouter basename={process.env.PUBLIC_URL + '/'}>
@@ -175,8 +177,6 @@ class App extends Component {
                 <Route path='/Explore' render={exploreCallback} />
                 <Route path='/About' component={About} />
                
-                <Route path='/Profile' render={(props) => <Profile user={this.state.user}/>} />
-
                 <Route exact redirect='/' component={Home} />
               </Switch>
             </div>
@@ -187,7 +187,8 @@ class App extends Component {
 
     return (
       <MuiThemeProvider>
-        <div>
+        <div> 
+          {/* Shows the loading circle if loading, content if not */}
           {this.state.loading ? (<div><CircularProgress size={150} thickness={7} /></div>) : (content)}
         </div>
       </MuiThemeProvider>
@@ -195,7 +196,7 @@ class App extends Component {
   }
 }
 
-
+// Home component that shows the option to buy or sell books
 class Home extends Component {
   render() {
     return (
@@ -219,14 +220,14 @@ class Home extends Component {
 }
 
 const styles = StyleSheet.create({
-  logOutBar:{
+  logOutBar: {
     height: "37px",
     width: "100%",
     color: "#E1E1E1",
     backgroundColor: "#202D33"
   },
 
-  logOutButton:{
+  logOutButton: {
     position: "relative",
     float: "right"
   }
