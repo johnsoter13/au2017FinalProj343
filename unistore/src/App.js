@@ -6,7 +6,8 @@ import NavBar from './Components/NavBar.js';
 import Buy from './Components/Buy.js';
 import Sell from './Components/Sell.js';
 import Explore from './Components/Explore.js';
-import background from './img/background.jpg';
+import About from './Components/About.js';
+import logo from './img/unistore-logo.png';
 import buyImg from './img/buy.png';
 import sellImg from './img/sell.png';
 import firebase from 'firebase/app';
@@ -129,19 +130,29 @@ class App extends Component {
       if (!this.state.signUp) {
         content = (
           <div className="container">
-            <h1>Sign In</h1>
-            <SignInForm
-              signInCallback={(e, p) => this.handleSignIn(e, p)}
-              signUpInsteadCallback={(bool) => this.signUpInstead(bool)} />
+            <header className="App-header page-header">
+              <img id="appLogo" src={logo} className="App-logo" alt="App Logo"/>
+           </header>
+           <div className="jumbotron">
+             <h1>Sign In</h1>
+             <SignInForm
+               signInCallback={(e, p) => this.handleSignIn(e, p)}
+               signUpInsteadCallback={(bool) => this.signUpInstead(bool)} />
+           </div>
           </div>
         );
       }
       else {
         content = (
           <div className="container">
+            <header className="App-header page-header">
+              <img id="appLogo" src={logo} className="App-logo" alt="App Logo"/>
+           </header>
+           <div className="jumbotron">
             <h1>Sign Up</h1>
             <SignUpForm
               signUpCallback={(e, p, h, a) => this.handleSignUp(e, p, h, a)} />
+          </div>
           </div>
         );
       }
@@ -162,7 +173,7 @@ class App extends Component {
                 <Route path='/Sell' render={sellCallback} />
 
                 <Route path='/Explore' render={exploreCallback} />
-
+                <Route path='/About' component={About} />
                
                 <Route path='/Profile' render={(props) => <Profile user={this.state.user}/>} />
 
