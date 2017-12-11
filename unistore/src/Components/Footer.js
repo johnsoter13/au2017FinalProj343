@@ -38,6 +38,7 @@ class Footer extends Component {
                 <p className="footer-stay-connected">
                   <span>Stay Connected</span>
                     Keep up to date and follow us
+                </p>
                 <p className="footer-company-about">
                   <span>About the company</span>
                   We're all about furthering education without the exorbitant costs of textbooks.
@@ -46,9 +47,7 @@ class Footer extends Component {
                 <div className="footer-icons">
                   <a href="https://github.com/johnsoter13/au2017FinalProj343"><i className="fa fa-github"></i></a>
                 </div>
-        
-              </div>
-        
+            </div>        
             </footer>
       )
     }
