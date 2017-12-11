@@ -38,6 +38,7 @@ class Explore extends Component {
 
     render() {
         let items = {}
+        // Traverse through every user and listing they have to add to the explore listings
         if (this.props.listings) {
             this.values = Object.values(this.props.listings);
             for (let i = 0; i < this.values.length; i++) {
@@ -53,6 +54,7 @@ class Explore extends Component {
             <div>
                 <NavBar />
                 <div className="container">
+                {/* Renders progress circle if loading, listings if not */}
                     {this.state.loading ? (<div><CircularProgress size={150} thickness={7} /></div>) :
                         (<BuyList listings={items}
                                   handleBuyCallback={(item) => this.handleBuy(item)} />)}

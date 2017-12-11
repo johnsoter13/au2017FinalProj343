@@ -27,7 +27,7 @@ class Sell extends Component {
 
     handleSell(event) {
         event.preventDefault();
-        if(this.state.deptInput == '' || this.state.classInput == '' || this.state.priceInput == '') {
+        if(this.state.deptInput === '' || this.state.classInput === '' || this.state.priceInput === '') {
             return null;
         }
         this.dbRef = firebase.database().ref();
