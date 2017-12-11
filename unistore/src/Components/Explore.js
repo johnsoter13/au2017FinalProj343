@@ -53,7 +53,7 @@ class Explore extends Component {
         return (
             <div>
                 <NavBar />
-                <div className="container">
+                <div>
                 {/* Renders progress circle if loading, listings if not */}
                     {this.state.loading ? (<div><CircularProgress size={150} thickness={7} /></div>) :
                         (<BuyList listings={items}
