@@ -48,15 +48,13 @@ class Buy extends Component {
 
     handleBuy = (item) => {
         let boughtItem;
+        
         this.dbRef.child('items').child(item.class).child(item.id).on('value', (snapshot) => {
             boughtItem = snapshot.val();
         });
+        alert("You have successfully bought a " + boughtItem.class + " book for $" + boughtItem.price);
         this.dbRef.child('users').child(this.props.user.displayName).child("bought_items").push(boughtItem);
         this.dbRef.child('items').child(item.class).child(item.id).remove();
-    }
-
-    handleCancel(event) {
-        <Link to="/"></Link>
     }
 
     render() {
