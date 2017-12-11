@@ -15,12 +15,14 @@ class Explore extends Component {
     
     render() {
         let items = {}
-        this.values = Object.values(this.props.listings);
-        for(let i = 0; i < this.values.length; i++) {
-            this.listingValue = Object.values(this.values[i]);
-            this.listingId = Object.keys(this.values[i]);
-            for(let j = 0; j < this.listingId.length; j++) {
-                items[this.listingId[j]] = this.listingValue[j]
+        if (this.props.listings) {
+            this.values = Object.values(this.props.listings);
+            for(let i = 0; i < this.values.length; i++) {
+                this.listingValue = Object.values(this.values[i]);
+                this.listingId = Object.keys(this.values[i]);
+                for(let j = 0; j < this.listingId.length; j++) {
+                    items[this.listingId[j]] = this.listingValue[j]
+                }
             }
         }
         return (

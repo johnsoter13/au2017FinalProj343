@@ -16,8 +16,6 @@ class BuyList extends Component {
         this.props.handleBuyCallback(item);
     }
 
-
-
     render() {
         if (this.props.listings == null) {
             return null
@@ -40,7 +38,7 @@ class BuyList extends Component {
             }
         })
         return (
-            <div className="d-flex">{this.listingArray}</div>
+            <div className={css(styles.listings)}>{this.listingArray}</div>
         )
     }
 }
@@ -82,13 +80,19 @@ class Listing extends Component {
 
 const styles = StyleSheet.create({
     card: {
-        width: "30%",
+        width: "250px",
         margin: "1em",
         textAlign: "center"
     },
 
     button: {
         marginBottom: "1em"
+    },
+
+    listings: {
+        display: "flex",
+        width: "100%",
+        flexFlow: "wrap"
     }
   });
 
