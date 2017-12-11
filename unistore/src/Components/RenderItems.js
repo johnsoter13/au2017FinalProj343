@@ -67,6 +67,7 @@ class Listing extends Component {
         // displays time from when post was created
         let date = (moment(this.props.listing.time)).fromNow();
         let author = this.props.listing.author;
+        let photoURL = "";
         // since database and moment servers aren't in synch, time of recent post could be in the future
         // even though its not. This stops that from happening.
         if (date === 'in a few seconds') {
@@ -75,9 +76,15 @@ class Listing extends Component {
         if (author == null) {
             author = 'Not listed'
         }
+        if (this.props.listing.photoUrl) {
+            photoURL = this.props.listing.photoUrl;
+        } else {
+            photoURL = textbook;
+        }
+        
         return (
             <Card className={css(styles.card)}>
-                <CardMedia><img src={textbook} alt={"photo of " + this.props.listing.class + " book"}></img></CardMedia>
+                <CardMedia><img src={photoURL} alt={"photo of " + this.props.listing.class + " book"}></img></CardMedia>
                 <CardTitle title={"Class: " + this.props.listing.class} />
                 <CardText>
                     <p> {"By: " + author} </p>
