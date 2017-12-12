@@ -44,7 +44,7 @@ class App extends Component {
     });
 
     // Sets the user state to the current user logged in
-    let authUnRegFunc = firebase.auth().onAuthStateChanged((firebaseUser) => {
+    this.authUnRegFunc = firebase.auth().onAuthStateChanged((firebaseUser) => {
       if (firebaseUser) {
         this.setState({
           user: firebaseUser,
@@ -59,6 +59,10 @@ class App extends Component {
         });
       }
     });
+  }
+
+  componentWillUnmount() {
+    this.authUnRegFunc();
   }
 
   // Handles sign in verification
