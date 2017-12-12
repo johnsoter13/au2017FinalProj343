@@ -28,22 +28,20 @@ class Footer extends Component {
 
           <div>
             <i className="fa fa-envelope"></i>
-            <p><a href="mailto:support@company.com">support@unistore.com</a></p>
+            <p><a className="text-white" href="mailto:support@company.com">support@unistore.com</a></p>
           </div>
 
         </div>
 
         <div className="footer-right">
-
+          <p className="footer-company-about text-white">
+            <h2 className="lead">About the company: </h2>
+            <p className="lead" id="about">We're all about furthering education without the exorbitant costs of textbooks.</p>
+          </p>
+          <br />
           <p className="footer-stay-connected">
-            <span>Stay Connected</span>
-            Keep up to date and follow us
-                </p>
-          <p className="footer-company-about">
-            <span>About the company</span>
-            We're all about furthering education without the exorbitant costs of textbooks.
-                </p>
-
+            <span>Stay connected and follow us</span>
+          </p>
           <div className="footer-icons">
             <a href="https://github.com/johnsoter13/au2017FinalProj343"><i className="fa fa-github"></i></a>
           </div>
