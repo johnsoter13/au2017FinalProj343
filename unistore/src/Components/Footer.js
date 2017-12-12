@@ -18,12 +18,12 @@ class Footer extends Component {
         <div className="footer-center">
 
           <div>
-            <i className="fa fa-map-marker"></i>
+            <i aria-label="marker image" className="fa fa-map-marker"></i>
             <p><span>1218 Campus Parkway</span> Seattle, WA, USA</p>
           </div>
 
           <div>
-            <i className="fa fa-phone"></i>
+            <i aria-label="phone image" className="fa fa-phone"></i>
             <p>+1-(888)123-456</p>
           </div>
 
@@ -35,16 +35,16 @@ class Footer extends Component {
         </div>
 
         <div className="footer-right">
-          <p className="footer-company-about text-white">
-            <h2 className="lead">About the company: </h2>
+          <div className="footer-company-about text-white">
+            <p className="lead">About the company: </p>
             <p className="lead" id="about">We're all about furthering education without the exorbitant costs of textbooks.</p>
-          </p>
+          </div>
           <br />
           <p className="footer-stay-connected">
             <span>Stay connected and follow us</span>
           </p>
           <div className="footer-icons">
-            <a href="https://github.com/johnsoter13/au2017FinalProj343"><i className="fa fa-github"></i></a>
+            <a aria-label="github link" href="https://github.com/johnsoter13/au2017FinalProj343"><i className="fa fa-github"></i></a>
           </div>
         </div>
       </footer>

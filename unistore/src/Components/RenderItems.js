@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import './../css/renderedItems.css'
-import { Form, FormGroup, Label, Input, Button, FormFeedback, Alert } from 'reactstrap';
-import { Link } from 'react-router-dom';
-import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
+import { Card, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import { StyleSheet, css } from 'aphrodite';
 import textbook from '../img/textbook.png'
@@ -71,15 +69,15 @@ class Listing extends Component {
     render() {
         // displays time from when post was created
         let date = (moment(this.props.listing.time)).fromNow();
-        let author = this.props.listing.author;
+        let title = this.props.listing.title;
         let photoURL = "";
         // since database and moment servers aren't in synch, time of recent post could be in the future
         // even though its not. This stops that from happening.
         if (date === 'in a few seconds') {
             date = 'Just now';
         }
-        if (author == null) {
-            author = 'Not listed'
+        if (title == null) {
+            title = 'Not listed'
         }
         if (this.props.listing.photoUrl) {
             photoURL = this.props.listing.photoUrl;
@@ -92,11 +90,11 @@ class Listing extends Component {
                 <CardMedia><img src={photoURL} alt={"photo of " + this.props.listing.class + " book"}></img></CardMedia>
                 <CardTitle title={"Class: " + this.props.listing.class} />
                 <CardText>
-                    <p> {"By: " + author} </p>
+                    <p> {"Title: " + title} </p>
                     <p> {"Price: $" + this.props.listing.price} </p>
                     <p> {"Posted: " + date} </p>
                 </CardText>
-                <RaisedButton className={css(styles.button)} primary={true} id={this.props.listing.id} key={this.props.listing.id} onClick={(event) => this.handleBuy(event)} value="buy">Buy</RaisedButton>
+                <RaisedButton role="button" aria-label="Buy" className={css(styles.button)} primary={true} id={this.props.listing.id} key={this.props.listing.id} onClick={(event) => this.handleBuy(event)} value="buy">Buy</RaisedButton>
             </Card>
         )
     }
