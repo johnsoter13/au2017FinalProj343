@@ -18,12 +18,12 @@ class Footer extends Component {
         <div className="footer-center">
 
           <div>
-            <i role="image" aria-label="marker image" className="fa fa-map-marker"></i>
+            <i aria-label="marker image" className="fa fa-map-marker"></i>
             <p><span>1218 Campus Parkway</span> Seattle, WA, USA</p>
           </div>
 
           <div>
-            <i role="image" aria-label="phone image" className="fa fa-phone"></i>
+            <i aria-label="phone image" className="fa fa-phone"></i>
             <p>+1-(888)123-456</p>
           </div>
 
@@ -44,7 +44,7 @@ class Footer extends Component {
             <span>Stay connected and follow us</span>
           </p>
           <div className="footer-icons">
-            <a role="link" aria-label="github link" href="https://github.com/johnsoter13/au2017FinalProj343"><i className="fa fa-github"></i></a>
+            <a aria-label="github link" href="https://github.com/johnsoter13/au2017FinalProj343"><i className="fa fa-github"></i></a>
           </div>
         </div>
       </footer>

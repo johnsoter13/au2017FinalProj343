@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import NavBar from './NavBar.js';
-import { Form, FormGroup, Label, Input, Button, FormFeedback, Alert } from 'reactstrap';
+import { Form, Input } from 'reactstrap';
 import Footer from './Footer.js';
 import 'firebase/auth';
 import 'firebase/database';
@@ -8,7 +8,7 @@ import firebase from 'firebase/app';
 import BuyList from './RenderItems.js';
 import RaisedButton from 'material-ui/RaisedButton';
 import { StyleSheet, css } from 'aphrodite';
-import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // This component handles the buy function of the application
 // It searches for books using the parameters given by the user
