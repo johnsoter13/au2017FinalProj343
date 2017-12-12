@@ -13,14 +13,12 @@ class NavBar extends Component {
   render() {
     return (
 
-      <nav id="navbar" className="navbar navbar-expand-sm navbar-light bg-light">      
+      <nav id="navbar" className="navbar navbar-expand-sm navbar-light bg-light">
 
-        <a className="navbar-brand">
-            <Link to="/"><img id="logo" src={Logo} aria-label="UniStore Logo"/></Link>
-            <button className="navbar-toggler pull-right" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
-              <span className="navbar-toggler-icon"></span>
-            </button>
-          </a>
+        <Link to="/"><img id="logo" src={Logo} aria-label="UniStore Logo" /></Link>
+        <button className="navbar-toggler pull-right" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
 
         <div className="collapse navbar-collapse" id="nav-content">
           <ul className="navbar-nav ml-auto">

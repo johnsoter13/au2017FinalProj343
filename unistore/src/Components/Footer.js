@@ -35,10 +35,10 @@ class Footer extends Component {
         </div>
 
         <div className="footer-right">
-          <p className="footer-company-about text-white">
-            <h2 className="lead">About the company: </h2>
+          <div className="footer-company-about text-white">
+            <p className="lead">About the company: </p>
             <p className="lead" id="about">We're all about furthering education without the exorbitant costs of textbooks.</p>
-          </p>
+          </div>
           <br />
           <p className="footer-stay-connected">
             <span>Stay connected and follow us</span>
