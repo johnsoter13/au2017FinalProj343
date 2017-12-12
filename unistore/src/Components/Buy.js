@@ -128,7 +128,7 @@ class Buy extends Component {
                         <Form>
                             <fieldset>
                                 <legend><span className="number">1</span> Course Info</legend>
-                                <select id='department' onChange={this.handleChange} name="deptInput" >
+                                <select id='department' aria-label="department dropdown" onChange={this.handleChange} name="deptInput" >
                                     <optgroup label="Departments">
                                         <option value="select">Select Department</option>
                                         <option value="Math">Math</option>
@@ -136,15 +136,15 @@ class Buy extends Component {
                                         <option value="Physics">Physics</option>
                                     </optgroup>
                                 </select>
-                                <select id="course" onChange={this.handleChange} name="classInput">
+                                <select id="course" aria-label="course dropdown" onChange={this.handleChange} name="classInput">
                                     {classes}
                                 </select>
                             </fieldset>
                             <fieldset>
-                                <Input type="text" name="priceInput" onChange={this.handleChange} placeholder="Max Price *" />
+                                <Input aria-label="price input" type="text" name="priceInput" onChange={this.handleChange} placeholder="Max Price *" />
                             </fieldset>
-                            <Input type="button" onClick={(event) => this.handleSearch(event)} value="Search" />
-                            <Link to="/"><Input type="button" value="Cancel" /></Link>
+                            <Input type="button" role="button" aria-label="search button" onClick={(event) => this.handleSearch(event)} value="Search" />
+                            <Link to="/"><Input role="button" aria-label="cancel button" type="button" value="Cancel" /></Link>
                         </Form>
                     </div>
                 </div>

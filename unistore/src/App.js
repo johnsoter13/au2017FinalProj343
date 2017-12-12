@@ -17,7 +17,6 @@ import CircularProgress from 'material-ui/CircularProgress';
 import FlatButton from 'material-ui/FlatButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { StyleSheet, css } from 'aphrodite';
-import Profile from './Components/Profile.js';
 import 'firebase/auth';
 import 'firebase/database';
 
@@ -205,11 +204,11 @@ class Home extends Component {
         <br />
         <div id="buysellimg" className="jumbotron text-center">
           <Link to='/Buy'>
-            <input id="buyImg" type="image" src={buyImg} />
+            <input id="buyImg" type="image" src={buyImg} alt="Click here to Buy" />
             <h2>Buy Books</h2>
           </Link>
           <Link to='/Sell'>
-            <input id="sellImg" type="image" src={sellImg} />
+            <input id="sellImg" type="image" src={sellImg} alt="click here to Sell"/>
             <h2>Sell Books</h2>
           </Link>
         </div>

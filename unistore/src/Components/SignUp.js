@@ -158,7 +158,7 @@ class SignUpForm extends Component {
 
           {/* buttons */}
           <FormGroup>
-            <Button disabled={signupValid()} color="primary" className="mr-2" onClick={(e) => this.handleSignUp(e)} >
+            <Button role="button" aria-label="signup button" disabled={signupValid()} color="primary" className="mr-2" onClick={(e) => this.handleSignUp(e)} >
               Sign-up
                   </Button>
           </FormGroup>

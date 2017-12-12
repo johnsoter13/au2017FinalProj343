@@ -18,7 +18,7 @@ class Sell extends Component {
             priceInput: '',
             classInput: '',
             photoInput: '',
-            authorInput: ''
+            titleInput: ''
         }
     }
 
@@ -44,7 +44,7 @@ class Sell extends Component {
         let newItem = {
             department: this.state.deptInput,
             class: this.state.classInput,
-            author: this.state.authorInput,
+            title: this.state.titleInput,
             price: this.state.priceInput,
             sellerName: this.props.user.displayName,
             photoUrl: this.state.photoInput,
@@ -114,7 +114,7 @@ class Sell extends Component {
                         <Form>
                             <fieldset>
                                 <legend><span className="number">1</span> Course Info</legend>
-                                <select id='department' onChange={this.handleChange} name="deptInput" >
+                                <select id='department' onChange={this.handleChange} name="deptInput" aria-label="department dropdown">
                                     <optgroup label="Departments">
                                         <option value="select">Select Department</option>
                                         <option value="Math">Math</option>
@@ -122,18 +122,18 @@ class Sell extends Component {
                                         <option value="Physics">Physics</option>
                                     </optgroup>
                                 </select>
-                                <select id="course" onChange={this.handleChange} name="classInput">
+                                <select id="course" onChange={this.handleChange} name="classInput" aria-label="select course dropdown">
                                     {classes}
                                 </select>
                             </fieldset>
                             <fieldset>
                                 <legend><span className="number">2</span> Book Info</legend>
-                                <Input type="text"  onChange={this.handleChange} name="authorInput" placeholder="Author *" />
-                                <Input type="text"  onChange={this.handleChange} name="priceInput" placeholder="Price *" />
-                                <Input type="photo" onChange={this.handleChange} name="photoInput" placeholder="Upload Picture" />
+                                <Input type="text" aria-label="title input" onChange={this.handleChange} name="titleInput" placeholder="Title *" />
+                                <Input type="text" aria-label="price input"  onChange={this.handleChange} name="priceInput" placeholder="Price *" />
+                                <Input type="photo" aria-label="picture input" onChange={this.handleChange} name="photoInput" placeholder="Upload Picture" />
                             </fieldset>
-                            <input type="button" onClick={(event) => this.handleSell(event)} value="Post" />
-                            <Link to="/"><Input type="button" value="Cancel" /></Link>
+                            <input type="button" role="button" aria-label="sell Button" onClick={(event) => this.handleSell(event)} value="Post" />
+                            <Link to="/"><Input role="button" aria-label="cancel button" type="button" value="Cancel" /></Link>
                         </Form>
                     </div>
                 </div>

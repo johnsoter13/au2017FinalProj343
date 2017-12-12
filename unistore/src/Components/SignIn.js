@@ -57,10 +57,10 @@ class SignInForm extends Component {
                         />
                     </FormGroup>
                     <FormGroup>
-                        <RaisedButton primary={true} onClick={(e) => this.handleSignIn(e)} >
+                        <RaisedButton role="button" aria-label="sign in button" primary={true} onClick={(e) => this.handleSignIn(e)} >
                             Sign-in
                     </RaisedButton>
-                        <p> Don't have an account? Sign up <a href="# " onClick={() => this.handleSignUpInstead()}>Here</a></p>
+                        <p> Don't have an account? Sign up <a role="link" href="# " onClick={() => this.handleSignUpInstead()}>Here</a></p>
                     </FormGroup>
                 </Form>
             </MuiThemeProvider>
