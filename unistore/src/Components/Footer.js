@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+// Footer displays additional information and ways to contact us
 /* Source: https://tutorialzine.com/2015/01/freebie-5-responsive-footer-templates */
 class Footer extends Component {
   render() {
