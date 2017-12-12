@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import './../css/renderedItems.css'
 import { Form, FormGroup, Label, Input, Button, FormFeedback, Alert } from 'reactstrap';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import { Link } from 'react-router-dom';
+import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import { StyleSheet, css } from 'aphrodite';
 import textbook from '../img/textbook.png'
@@ -20,27 +21,32 @@ class BuyList extends Component {
 
     //this is rendered if a user makes a search and theres no content there to display
     render() {
-        if (this.props.listings == null) {
-            return <div> <p> No content to show. Try changing your search! </p> </div>
-        }
 
         // this maps the ids of the object to an array that gets passed to the Listing class which renders the list item
-        this.listingId = Object.keys(this.props.listings);
-        this.listingArray = this.listingId.map((id) => {
-            let listing = this.props.listings[id];
-            listing.id = id;
-            // this will only allow posts under the max price entered by the user to be displayed
-            // if the user puts no max price all items will be displayed
-            if (Number(listing.price) < Number(this.props.price) || this.props.price == null || this.props.price == '') {
-                return <Listing
-                    key={id}
-                    listing={listing}
-                    handleBuyCallback={(item) => this.handleBuyCallback(item)}
-                />
-            }
-        })
+        if (this.props.listings) {
+            this.listingId = Object.keys(this.props.listings);
+            this.listingArray = this.listingId.map((id) => {
+                let listing = this.props.listings[id];
+                listing.id = id;
+                // this will only allow posts under the max price entered by the user to be displayed
+                // if the user puts no max price all items will be displayed
+                if (Number(listing.price) < Number(this.props.price) || this.props.price == null || this.props.price == '') {
+                    return <Listing
+                        key={id}
+                        listing={listing}
+                        handleBuyCallback={(item) => this.handleBuyCallback(item)}
+                    />
+                }
+            })
+        }
         return (
-            <div className={css(styles.listings)}>{this.listingArray}</div>
+            <div>
+                {!this.props.listings ?
+                    (<p> No content to show. Try changing your search! </p>
+                    ) : (<div className={css(styles.listings)}>{this.listingArray}</div>)
+                }
+                <div className={css(styles.buy)}> <RaisedButton secondary={true} onClick={() => window.location.reload()}>Back</RaisedButton> </div>
+            </div>
         )
     }
 }
@@ -81,7 +87,7 @@ class Listing extends Component {
         } else {
             photoURL = textbook;
         }
-        
+
         return (
             <Card className={css(styles.card)}>
                 <CardMedia><img src={photoURL} alt={"photo of " + this.props.listing.class + " book"}></img></CardMedia>
@@ -112,7 +118,12 @@ const styles = StyleSheet.create({
         display: "flex",
         width: "100%",
         flexFlow: "wrap"
+    },
+
+    buy: {
+        marginTop: "2em",
+        textAlign: "center"
     }
-  });
+});
 
 export default BuyList;
