@@ -7,6 +7,9 @@ import 'firebase/database';
 import firebase from 'firebase/app'
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 
+// This component renders the sell page where the user can post the textbooks that they wish to sell
+// in the application. It allows the user to input the department, class, author, price and picture
+// for the book. 
 class Sell extends Component {
     constructor(props) {
         super(props);
@@ -19,12 +22,15 @@ class Sell extends Component {
         }
     }
 
+    // Changes the state with the changes in the corresponding input
     handleChange = (event) => {
         let newState = {};
         newState[event.target.name] = event.target.value;
         this.setState({ [event.target.name]: newState[event.target.name] });
     }
 
+    // Handles the selling of the items
+    // Adds item to database and notifies user that they have listed an item for purchase
     handleSell(event) {
         event.preventDefault();
         if(this.state.deptInput === '' || this.state.classInput === '' || this.state.priceInput === '') {
@@ -57,6 +63,8 @@ class Sell extends Component {
             classes = <optgroup label="Select a Department!">
             </optgroup>
         }
+
+        //Math classes
         else if (this.state.deptInput === 'Math') {
             classes = <optgroup label="Mathematics">
                 <option value="select">Select Course</option>
@@ -70,6 +78,8 @@ class Sell extends Component {
                 <option value="other">Other</option>
             </optgroup>
         }
+
+        //Chemistry classes
         else if (this.state.deptInput === 'Chemistry') {
             classes = <optgroup label="Chemistry">
             <option value="select">Select Course</option>
@@ -83,6 +93,8 @@ class Sell extends Component {
             <option value="other">Other</option>
         </optgroup>
         }
+
+        //Physics classes
         else {
             classes = <optgroup label="Physics">
             <option value="select">Select Course</option>

@@ -3,7 +3,6 @@ import Logo from '../img/unistore-logo.png';
 import { Link } from 'react-router-dom';
 
 // The Navigation bar component allows the user to navigate between different pages in the application
-
 class NavBar extends Component {
   constructor(props) {
     super(props);
@@ -13,7 +12,6 @@ class NavBar extends Component {
   }
   render() {
     return (
-
 
       <nav id="navbar" className="navbar navbar-expand-sm navbar-light bg-light">      
 
