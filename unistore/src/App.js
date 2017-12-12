@@ -125,6 +125,12 @@ class App extends Component {
     let exploreCallback = (routerProps) => {
       return <Explore {...routerProps} user={this.state.user} listings={this.state.listings} />
     }
+	
+	//Error Message if the signin contains invalid input
+    let signinError = null;
+    if(this.state.errorMessage != null) {
+      signinError = (<p className="alert alert-danger">{this.state.errorMessage}</p>);
+    }
 
     let content = null;
     //if logged out, show signup form
@@ -137,6 +143,7 @@ class App extends Component {
            </header>
            <div className="jumbotron">
              <h1>Sign In</h1>
+			 {signinError}
              <SignInForm
                signInCallback={(e, p) => this.handleSignIn(e, p)}
                signUpInsteadCallback={(bool) => this.signUpInstead(bool)} />
