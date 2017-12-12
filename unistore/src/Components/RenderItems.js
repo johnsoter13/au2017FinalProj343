@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import './../css/renderedItems.css'
-import { Form, FormGroup, Label, Input, Button, FormFeedback, Alert } from 'reactstrap';
-import { Link } from 'react-router-dom';
-import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
+import { Card, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import { StyleSheet, css } from 'aphrodite';
 import textbook from '../img/textbook.png'

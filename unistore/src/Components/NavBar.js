@@ -14,7 +14,6 @@ class NavBar extends Component {
     return (
 
       <nav id="navbar" className="navbar navbar-expand-sm navbar-light bg-light">
-
         <Link to="/"><img id="logo" src={Logo} aria-label="UniStore Logo" /></Link>
         <button className="navbar-toggler pull-right" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>

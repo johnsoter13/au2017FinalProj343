@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import NavBar from './NavBar.js';
-import { Form, FormGroup, Label, Input, Button, FormFeedback, Alert } from 'reactstrap';
+import { Form, Input, } from 'reactstrap';
 import Footer from './Footer.js';
 import 'firebase/auth';
 import 'firebase/database';
 import firebase from 'firebase/app'
-import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // This component renders the sell page where the user can post the textbooks that they wish to sell
 // in the application. It allows the user to input the department, class, author, price and picture
@@ -132,7 +132,7 @@ class Sell extends Component {
                                 <Input type="text" aria-label="price input"  onChange={this.handleChange} name="priceInput" placeholder="Price *" />
                                 <Input type="photo" aria-label="picture input" onChange={this.handleChange} name="photoInput" placeholder="Upload Picture" />
                             </fieldset>
-                            <input type="button" role="button" aria-label="sell Button" onClick={(event) => this.handleSell(event)} value="Post" />
+                            <input type="button" aria-label="sell Button" onClick={(event) => this.handleSell(event)} value="Post" />
                             <Link to="/"><Input role="button" aria-label="cancel button" type="button" value="Cancel" /></Link>
                         </Form>
                     </div>

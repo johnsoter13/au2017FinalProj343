@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import NavBar from './NavBar.js';
-import { Form, FormGroup, Label, Input, Button, FormFeedback, Alert } from 'reactstrap';
 import Footer from './Footer.js';
-import BuyList from './RenderItems.js'
-import { StyleSheet, css } from 'aphrodite';
 
 // This component displays content of the about page of the application
 class About extends Component {
