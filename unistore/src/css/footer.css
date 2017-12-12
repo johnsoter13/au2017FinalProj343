@@ -1,5 +1,13 @@
 /* Source: https://tutorialzine.com/2015/01/freebie-5-responsive-footer-templates */
 
+h2 {
+	font-size: 20px;
+}
+
+#about {
+	font-size: 14px;
+}
+
 .footer-distributed{
 	background-color: #153544;
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);

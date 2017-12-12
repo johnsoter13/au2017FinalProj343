@@ -45,7 +45,6 @@ class BuyList extends Component {
                     (<p> No content to show. Try changing your search! </p>
                     ) : (<div className={css(styles.listings)}>{this.listingArray}</div>)
                 }
-                <div className={css(styles.buy)}> <RaisedButton role="button" aria-label="Go back" secondary={true} onClick={() => window.location.reload()}>Back</RaisedButton> </div>
             </div>
         )
     }
@@ -119,11 +118,6 @@ const styles = StyleSheet.create({
         width: "100%",
         flexFlow: "wrap"
     },
-
-    buy: {
-        marginTop: "2em",
-        textAlign: "center"
-    }
 });
 
 export default BuyList;

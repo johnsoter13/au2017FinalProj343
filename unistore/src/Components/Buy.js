@@ -4,8 +4,10 @@ import { Form, FormGroup, Label, Input, Button, FormFeedback, Alert } from 'reac
 import Footer from './Footer.js';
 import 'firebase/auth';
 import 'firebase/database';
-import firebase from 'firebase/app'
-import BuyList from './RenderItems.js'
+import firebase from 'firebase/app';
+import BuyList from './RenderItems.js';
+import RaisedButton from 'material-ui/RaisedButton';
+import { StyleSheet, css } from 'aphrodite';
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 
 // This component handles the buy function of the application
@@ -112,11 +114,14 @@ class Buy extends Component {
         // If a search was made, the app renders the listings
         if (this.state.hasSearched) {
             content = (
-                <BuyList
-                    price={this.state.maxPrice}
-                    listings={this.state.listings}
-                    handleBuyCallback={(item) => this.handleBuy(item)}
-                />
+                <div>
+                    <BuyList
+                        price={this.state.maxPrice}
+                        listings={this.state.listings}
+                        handleBuyCallback={(item) => this.handleBuy(item)}
+                    />
+                    <div className={css(styles.buy)}> <RaisedButton secondary={true} onClick={() => window.location.reload()}>Back</RaisedButton> </div>                
+                </div>
             )
         }
         else {
@@ -159,5 +164,13 @@ class Buy extends Component {
         )
     }
 }
+
+// aphrodite styles
+const styles = StyleSheet.create({
+    buy: {
+        marginTop: "2em",
+        textAlign: "center"
+    }
+});
 
 export default Buy;
