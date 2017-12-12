@@ -8,7 +8,9 @@ import firebase from 'firebase/app'
 import BuyList from './RenderItems.js'
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 
-
+// This component handles the buy function of the application
+// It searches for books using the parameters given by the user
+// If there are matching books they will be listed and available to buy
 class Buy extends Component {
     constructor(props) {
         super(props);
@@ -22,12 +24,15 @@ class Buy extends Component {
         }
     }
 
+    // Changes the state corresponding to the input 
     handleChange = (event) => {
         let newState = {};
         newState[event.target.name] = event.target.value;
         this.setState({ [event.target.name]: newState[event.target.name] });
     }
 
+    // Finds the right books that match the user's parameters and 
+    // orders them by price
     handleSearch(event) {
         event.preventDefault();
         if(this.state.deptInput === '' || this.state.classInput === '') {
@@ -49,6 +54,8 @@ class Buy extends Component {
         });
     }
 
+    // Handles the buying of the item 
+    // Deletes from the seller's database and pushes it to the buyer's
     handleBuy = (item) => {
         let boughtItem;
 
@@ -102,6 +109,7 @@ class Buy extends Component {
             </optgroup>
         }
 
+        // If a search was made, the app renders the listings
         if (this.state.hasSearched) {
             content = (
                 <BuyList
